@@ -1,0 +1,26 @@
+{
+  "name": "group-project2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anthonytrevino/Mixology.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anthonytrevino/Mixology/issues"
+  },
+  "homepage": "https://github.com/anthonytrevino/Mixology#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "mustache-express": "^1.2.8",
+    "node-fetch": "^2.3.0"
+  }
+}
