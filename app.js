@@ -13,8 +13,8 @@ app.post('/login', function(req,res){
   res.redirect('login')
 })
 
-app.get('/login', function(req,res){
-  res.render('login')
+app.get('/', function(req,res){
+  res.render('navbar')
 })
 
 app.listen(3000,function(req,res){
