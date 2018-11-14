@@ -1,0 +1,93 @@
+button:focus {
+    outline: 0;
+}
+
+.navbar .dropdown-menu .form-control {
+    width: 200px;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #508639 !important;
+    border: none !important;
+    margin-top: 1px;
+}
+
+.navbar {padding-top:1px !important; padding-bottom:1px !important;}
+
+body{
+  padding-top: 70px;
+}
+
+@media screen and (max-width:375px) {
+  .logo{
+    width:45px;
+    height:45px;
+  }
+  .mixology_master{
+    width:224px;
+    height:45px;
+  }
+  .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+      margin-left: 5px;
+      margin-bottom: 6px;
+  }
+  .form-control-login{
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    margin-top: 1px;
+    margin-left: 5px;
+  }
+}
+
+
+@media (min-width: 376px) and (max-width: 425px) {
+  .logo{
+    width:50px;
+    height:50px;
+  }
+  .mixology_master{
+    width:249px;
+    height:50px;
+  }
+  .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+      margin-left: 5px;
+      margin-top: 5px;
+  }
+  .form-control-login{
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    margin-top: 1px;
+    margin-left: 2px
+  }
+}
+
+@media screen and (min-width: 426px) {
+  .logo{
+    width:65px;
+    height:65px;
+  }
+  .mixology_master{
+    width:299px;
+    height:60px;
+  }
+  .dropdown-menu{
+    margin-top: 22px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: black;
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+  .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+      margin-left: 10px;
+      margin-top: 5px;
+  }
+  .form-control-login{
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    margin-top: 1px;
+  }
+}
