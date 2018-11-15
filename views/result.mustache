@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="/drinksite/site.css" />
+</head>
+
+<body>
+    <h1>Search results:</h1>
+    {{#drinks}}
+    <h1>{{strDrink}}</h1>
+    <div id="info-container">
+        <div id="drinkInfo">
+
+            <h3>Ingredients:</h3>
+            <ol>
+                {{#drinkIngredients}}
+                <li>
+                    <p>{{proportion}} {{ingredient}}</p>
+                </li>
+                {{/drinkIngredients}}
+            </ol>
+
+
+
+            <form action="/getSingleCocktail" method="POST">
+                <input type="hidden" name ="drinkID" value="{{idDrink}}">
+                <input type="submit" value="Get More Info">
+            </form>
+
+        </div>
+
+        <div id="drink-img">
+            <img src="{{strDrinkThumb}}">
+        </div>
+    </div>
+
+    {{/drinks}}
+</body>
+
+
+</html>

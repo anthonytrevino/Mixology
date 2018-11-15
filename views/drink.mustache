@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="/drinksite/site.css" />
+</head>
+
+<body>
+
+    {{#drinks}}
+    <h1>{{strDrink}}</h1>
+    <div id="info-container">
+        <div id="drinkInfo">
+
+            <h3>Ingredients:</h3>
+            <ol>
+                {{#drinkIngredients}}
+                <li>
+                    <p>{{proportion}} {{ingredient}}</p>
+                </li>
+                {{/drinkIngredients}}
+            </ol>
+
+            <h3>Glass Type:</h3>
+            <p>{{strGlass}}</p>
+            <h3>Instructions:</h3>
+            <p>{{strInstructions}}</p>
+
+        </div>
+
+        <div id="drink-img">
+            <img src="{{strDrinkThumb}}">
+        </div>
+    </div>
+
+    {{/drinks}}
+</body>
+
+
+</html>
