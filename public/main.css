@@ -18,6 +18,20 @@ body{
   padding-top: 80px;
 }
 
+#drink-img img{
+    width: 250px;
+    height: 250px;
+    margin-top: 1em;
+}
+
+#info-container{
+    display: flex;
+}
+
+#drinkInfo{
+    padding-right: 20px;
+}
+
 @media screen and (max-width:375px) {
   .logo{
     width:45px;

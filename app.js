@@ -4,6 +4,8 @@ const bodyParser = require('body-parser')
 const app = express()
 const session = require('express-session')
 const bcrypt = require('bcryptjs')
+const cocktailAPI = `https://www.thecocktaildb.com/api/json/v1/1/`
+var fetch = require('node-fetch')
 let username
 app.use(session({
     secret: 'cat',
@@ -27,17 +29,114 @@ app.engine('mustache',mustacheExpress())
 app.set('views','./views')
 app.set('view engine','mustache')
 
-app.get('/', function(req,res){
-        res.render('index')
-})
-app.get('/index', function(req,res){
-    res.render('index')
-})
-app.get('/register', function(req,res){
-    res.render('register')
+//Kevin's Work
+app.post('/getSingleCocktail', function (req, res) {
+  let drinkID = req.body.drinkID
+  fetch(cocktailAPI + "lookup.php?i=" + drinkID).then(res => res.json()).then(json => {
+    json.drinks.map(function (drink) {
+      drink.drinkIngredients = []
+      drink.ingredients = []
+      drink.proportions = []
+
+
+      Object.keys(drink).map(function (key, value) {
+
+        if (key.startsWith("strIngredient")) {
+          if (drink[key] != '' && drink[key] != null && drink[key] != ' ') {
+            drink.ingredients.push({
+              ingredient: drink[key]
+            })
+          }
+        }
+        if (key.startsWith("strMeasure")) {
+          if (drink[key] != '' && drink[key] != null && drink[key] != ' ') {
+            drink.proportions.push({
+              proportion: drink[key]
+            })
+
+          }
+
+        }
+      })
+
+      for (i = 0; i < drink.ingredients.length; i++) {
+        if (drink.proportions[i] == undefined) {
+          drink.proportions[i] = "nothing m8"
+        }
+        drink.drinkIngredients.push({
+          proportion: drink.proportions[i].proportion,
+          ingredient: drink.ingredients[i].ingredient
+        })
+        console.log(drink.drinkIngredients[i])
+      }
+
+
+    })
+    res.render('drink', {
+      drinks: json.drinks
+    })
+  })
 })
 
-    app.post('/register', function(req,res){
+app.post('/getCocktails', function (req, res) {
+  let serchTerm = req.body.query
+
+  fetch(cocktailAPI + "search.php?s=" + serchTerm).then(res => res.json()).then(json => {
+    //console.log(json)
+
+    json.drinks.map(function (drink) {
+      drink.drinkIngredients = []
+      drink.ingredients = []
+      drink.proportions = []
+
+
+      Object.keys(drink).map(function (key, value) {
+
+        if (key.startsWith("strIngredient")) {
+          if (drink[key] != '' && drink[key] != null && drink[key] != ' ') {
+            drink.ingredients.push({
+              ingredient: drink[key]
+            })
+          }
+        }
+        if (key.startsWith("strMeasure")) {
+          if (drink[key] != '' && drink[key] != null && drink[key] != ' ') {
+            drink.proportions.push({
+              proportion: drink[key]
+            })
+
+          }
+
+        }
+      })
+
+      for (i = 0; i < drink.ingredients.length; i++) {
+        if (drink.proportions[i] == undefined) {
+          drink.proportions[i] = "nothing m8"
+        }
+        drink.drinkIngredients.push({
+          proportion: drink.proportions[i].proportion,
+          ingredient: drink.ingredients[i].ingredient
+        })
+
+      }
+
+
+    })
+
+
+
+    //console.log(drink.ingredients)
+    res.render('result', {
+      drinks: json.drinks
+    })
+
+  })
+
+})
+
+
+app.post('/register', function(req,res){
         let username = req.body.username
         let password = req.body.password
         let encrypted_password = bcrypt.hashSync(password,10)
@@ -81,6 +180,16 @@ app.post('/enter_comment', function(req,res){
     let enter_comment = req.body.enter_comment
 db.none('INSERT INTO user_comment(iddrink,drink_comment,time_stamp, username) VALUES($1,$2,$3,$4)',[iddrink,enter_comment,new Date(),username])
 res.redirect('drink_item')
+})
+
+app.get('/', function(req,res){
+        res.render('index')
+})
+app.get('/index', function(req,res){
+    res.render('index')
+})
+app.get('/register', function(req,res){
+    res.render('register')
 })
 //get drink with comments
 app.get('/drink_item', function(req, res){
