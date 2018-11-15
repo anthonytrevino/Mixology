@@ -15,7 +15,7 @@ button:focus {
 .navbar {padding-top:1px !important; padding-bottom:1px !important;}
 
 body{
-  padding-top: 70px;
+  padding-top: 80px;
 }
 
 @media screen and (max-width:375px) {
