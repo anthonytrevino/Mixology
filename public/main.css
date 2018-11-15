@@ -15,7 +15,21 @@ button:focus {
 .navbar {padding-top:1px !important; padding-bottom:1px !important;}
 
 body{
-  padding-top: 70px;
+  padding-top: 80px;
+}
+
+#drink-img img{
+    width: 250px;
+    height: 250px;
+    margin-top: 1em;
+}
+
+#info-container{
+    display: flex;
+}
+
+#drinkInfo{
+    padding-right: 20px;
 }
 
 @media screen and (max-width:375px) {
