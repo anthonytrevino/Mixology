@@ -5,7 +5,7 @@
 </head>
 
 <body>
-    <h1>Search results:</h1>
+    
     {{#drinks}}
     <h1>{{strDrink}}</h1>
     <div id="info-container">
@@ -20,12 +20,10 @@
                 {{/drinkIngredients}}
             </ol>
 
-            
-            
-            <form action="/getSingleCocktail" method="POST">
-                <input type="hidden" name ="drinkID" value="{{idDrink}}">
-                <input type="submit" value="Get More Info">
-            </form>
+            <h3>Glass Type:</h3>
+            <p>{{strGlass}}</p>
+            <h3>Instructions:</h3>
+            <p>{{strInstructions}}</p>
                 
         </div>
 
