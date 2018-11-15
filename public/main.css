@@ -105,3 +105,9 @@ body{
     margin-top: 3px;
   }
 }
+
+.row::after {
+  content:"";
+  clear: both;
+  display: table;
+}
