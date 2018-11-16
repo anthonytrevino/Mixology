@@ -81,6 +81,7 @@ app.post('/getSingleCocktail', function (req, res) {
 app.post('/getCocktails', function (req, res) {
   let serchTerm = req.body.query
 
+
   fetch(cocktailAPI + "search.php?s=" + serchTerm).then(res => res.json()).then(json => {
     //console.log(json)
 
