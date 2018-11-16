@@ -49,36 +49,54 @@
 
         </div>
     </nav>
-    <h1>Search results:</h1>
-    {{#drinks}}
-    <h1>{{strDrink}}</h1>
-    <div id="info-container">
-        <div id="drinkInfo">
+    <div id='bg'>
+        <img src="background.jpg">
+    </div>
+    <div id='main-container'>
+        <h1>Search results:</h1>
+        {{#drinks}}
 
-            <h3>Ingredients:</h3>
-            <ol>
-                {{#drinkIngredients}}
-                <li>
-                    <p>{{proportion}} {{ingredient}}</p>
-                </li>
-                {{/drinkIngredients}}
-            </ol>
+        <div id="info-container">
+            <div id='drinkTitle'>
+                <h1>{{strDrink}}</h1>
+            </div>
+            <div id="info-box">
+                <div id="drinkInfo">
+                    <div id='ingredients'>
+                        <h3>Ingredients:</h3>
+                        <ul>
+                            {{#drinkIngredients}}
+                            <li>
+                                <p>{{proportion}} {{ingredient}}</p>
+                            </li>
+                            {{/drinkIngredients}}
+                        </ul>
+                    </div>
 
 
 
-            <form action="/getSingleCocktail" method="POST">
-                <input type="hidden" name="drinkID" value="{{idDrink}}">
-                <input type="submit" value="Get More Info">
-            </form>
+                </div>
 
+                <div id="drink-img">
+                    <img src="{{strDrinkThumb}}">
+                </div>
+               
+            </div>
+             <div id='info-button'>
+                <form action="/getSingleCocktail" method="POST">
+                    <input type="hidden" name="drinkID" value="{{idDrink}}">
+                    <input class="btn btn-primary" type="submit" value="Get More Info">
+                </form>
+            </div>
+            
+            
         </div>
 
-        <div id="drink-img">
-            <img src="{{strDrinkThumb}}">
+        {{/drinks}}
+        <div id='bg'>
+            <img src="background.jpg">
         </div>
     </div>
-
-    {{/drinks}}
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
