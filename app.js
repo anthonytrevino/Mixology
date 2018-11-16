@@ -160,6 +160,7 @@ app.post('/register', function(req,res){
                }else{
                    console.log('error')
                }
+
             })
             if(user != null){
                 if(user.username){
@@ -170,6 +171,7 @@ app.post('/register', function(req,res){
             }else{
                 res.redirect('index')
             }
+
         })
     })
 
@@ -198,6 +200,10 @@ db.any('SELECT * FROM drink_comment WHERE iddrink = $1',[2])
 .then(function(result){
     res.render('drink_item', {drink_item: result})
 })
+})
+
+app.get('/dashboard',function(req,res){
+  res.render('dashboard')
 })
 
 app.listen(3000,function(req,res){
