@@ -106,7 +106,7 @@ body{
   }
 }
 
-<<<<<<< HEAD
+
 .row::after {
   content:"";
   clear: both;
@@ -120,5 +120,9 @@ body{
 #createDrink {
   padding:20px;
   margin:20px;
->>>>>>> anthony
+
+}
+
+#userDrinkInput {
+  justify content:space-between;
 }
