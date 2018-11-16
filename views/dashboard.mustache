@@ -8,6 +8,7 @@
   </head>
   <body>
     <div id="search">
+<<<<<<< HEAD
       <input type="text" name="" value="" placeholder="This is the search text box">
     </div>
     <div>
@@ -24,6 +25,54 @@
     User
     Drink information
     Drink image
+=======
+      <h5>Search for a drink</h5>
+      
+      <form action="/getCocktails" method="POST">
+          <input type="text" name="query" placeholder="Enter Cocktail Name: ">
+          <input type="submit" value="Search">
+      </form>
+      {{#data}}
+      <uL>
+      <li>
+          <p>This exists</p>
+          <p>{{strDrink}}</p>
+      </li>
+      </ul>
+      {{/data}}
+    </div>
+
+    <div id="createDrink">
+      <h5>Create a Drink</h5>
+      <input type="text" name="" value="" placeholder="Enter Drink Name" />
+      <input type="text" name="" value="" placeholder="Enter Drink category" />
+      <select name="glassSize">
+        <option value="Tall">Tall Glass</option>
+        <option value="Tall">Small Glass</option>
+      </select>
+
+      <input type="text" name="" value="" placeholder="Enter Instructions" />
+      <input type="text" name="" value="" placeholder="Enter drink thumbnail image" />
+      <input type="text" name="" value="" placeholder="Enter drink ingredients" />
+
+    </div>
+
+
+    <h4>User-created Drink recipes</h4>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          User
+        </div>
+        <div class="col-sm">
+          Drink Information
+        </div>
+        <div class="col-sm">
+          Drink image
+        </div>
+      </div>
+    </div>
+>>>>>>> anthony
 
 
 
