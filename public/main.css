@@ -8,7 +8,7 @@ button:focus {
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: #508639 !important;
-    border: none !important;
+    border: 2px !important;
     margin-top: 1px;
 }
 
@@ -16,6 +16,35 @@ button:focus {
 
 body{
   padding-top: 80px;
+  background-color: black;
+  background-image: url("background.jpg");
+  background-size: cover;
+  
+}
+
+
+
+.form-control-login{
+  height: 36px;
+  
+  margin-top: 5px;
+  
+}
+
+#main-container{
+  width: 80%;
+  color: white;
+  text-align: center;
+}
+
+#login{
+  padding-top:10px;
+  padding-bottom: 10px;
+}
+
+#search{
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 #drink-img img{
@@ -46,9 +75,7 @@ body{
       margin-bottom: 6px;
   }
   .form-control-login{
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
+    
     margin-top: 1px;
     margin-left: 5px;
   }
@@ -96,12 +123,13 @@ body{
   }
   .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
       margin-left: 10px;
-      margin-top: 5px;
+      border: 2px;
+     
   }
   .form-control-login{
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
+   
+   
+    
     margin-top: 3px;
   }
 }
