@@ -22,7 +22,7 @@ button:focus {
 
 body {
   padding-top: 80px;
- 
+
   background-image: url("background.jpg");
   background-size: cover;
 
@@ -42,7 +42,7 @@ z-index: -1;
 #drinkTitle {
   display: block;
   text-align: left;
-  
+
 
 }
 
@@ -56,7 +56,7 @@ z-index: -1;
 #main-container {
   width: 80%;
   color: white;
-  
+
   margin: auto;
 }
 
@@ -80,24 +80,24 @@ z-index: -1;
   display: flex;
   flex-direction: column;
   padding: 15px;
-  
-  
+
+
 }
 #ingredients{
   position: relative;
 }
 #info-button{
- 
+
 }
 
 #info-box {
   display: flex;
   border-top: 3px double gray;
-  
+
   margin-right: auto;
   padding: 5px;
   position: relative;
-  
+
 }
 
 #drinkInfo {
@@ -112,7 +112,7 @@ z-index: -1;
 #drinkInfo ul {
   list-style: none;
   padding: 0;
-  
+
 }
 
 @media screen and (max-width:375px) {

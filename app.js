@@ -237,6 +237,19 @@ app.get('/dashboard',function(req,res){
   res.render('dashboard')
 })
 
+app.post('/createdrink',function(req,res){
+  let strdrink = req.body.strdrink
+  let strcategory = req.body.strcategory
+  let strglass = req.body.strcategory
+  let strinstructions = req.body.strinstructions
+  let strdrinkthumb = req.body.strdrinkthumb
+  let stringredient = req.body.stringredient
+  console.log(stringredient)
+
+
+  db.none('INSERT INTO drink_recipe(strdrink,strcategory,strglass,strinstructions,strdrinkthumb,stringredient) VALUES($1,$2,$3,$4,$5,$6)',[strdrink,strcategory,strglass,strinstructions,strdrinkthumb,[stringredient]])
+})
+
 app.listen(3000,function(req,res){
     console.log("Server has started...")
 })
