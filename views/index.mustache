@@ -26,15 +26,26 @@
             <a class="nav-link" href="#">Contact</a>
         </li> -->
     </ul>
+     <ul class="navbar-nav mr-right">
+     <li class="nav-item">
+    <p class="nav-link">{{username}}</p>
+    </li>
+     <li class="nav-item">
+    <form class="nav-link" action ='/logout' method="GET"> 
+    <input type="{{type}}"  class="{{button}}" value="{{logout}}">
+
+    </form> 
+    </li>
+    </ul>
     <ul class="navbar-nav mr-right">
       <li class="nav-item">
           <a class="nav-link" href="/register">
-          Register
+          {{register}}
           </a>
       </li>
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Login
+            <a class="{{link}}" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{login}}
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <form class="form-horizontal" action="/login" method="POST" accept-charset="UTF-8">

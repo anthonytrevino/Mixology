@@ -6,8 +6,10 @@ const session = require('express-session')
 const bcrypt = require('bcryptjs')
 const cocktailAPI = `https://www.thecocktaildb.com/api/json/v1/1/`
 var fetch = require('node-fetch')
+const cookieParser = require('cookie-parser')
 let username
 app.use(session({
+    key: 'userid',
     secret: 'cat',
     resave: false,
     saveUninitialized: false
@@ -25,6 +27,7 @@ const cn = {
 const db = pgp(cn)
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static('public'))
+app.use(cookieParser());
 app.engine('mustache',mustacheExpress())
 app.set('views','./views')
 app.set('view engine','mustache')
@@ -145,7 +148,8 @@ app.post('/register', function(req,res){
            res.redirect('index')
         })
         .catch(function(error){
-            console.log(error)
+            res.render('register', {error: 'username is already taken'})
+    
         })
     })
 
@@ -164,8 +168,8 @@ app.post('/register', function(req,res){
             if(user != null){
                 if(user.username){
                     req.session.username=username
-                   console.log(user.username)
-                    res.redirect('drink_item')
+                   console.log(username)
+                    res.render('index',{username:username, logout:'logout', type:'submit', button:'button button1'})
                 }
             }else{
                 res.redirect('index')
@@ -182,7 +186,14 @@ db.none('INSERT INTO user_comment(iddrink,drink_comment,time_stamp, username) VA
 res.redirect('drink_item')
 })
 
-app.get('/', function(req,res){
+var sessionChecker = (req, res, next) => {
+  if (!req.session.username) {
+      res.render('index', {register: 'Register', login:'Login', type:'hidden', link:'nav-link dropdown-toggle'});
+  } else {
+      next();
+  }    
+};
+app.get('/',sessionChecker, function(req,res){
         res.render('index')
 })
 app.get('/index', function(req,res){
@@ -200,6 +211,31 @@ db.any('SELECT * FROM drink_comment WHERE iddrink = $1',[2])
 })
 })
 
+
+// app.use((req,res,next) =>{ 
+//   if(req.cookies.user_id && !req.session.userame){ 
+//     res.clearCookie('userid')
+//   }
+//   next()
+// })
+
+app.get('/logout',function(req,res){ 
+
+  if(req.session.username && req.cookies.userid){ 
+    res.clearCookie('userid')
+    res.redirect('/')
+  }else{ 
+    res.redirect('/index')
+  }
+})
+
+
 app.listen(3000,function(req,res){
     console.log("Server has started...")
 })
+
+app.use(function (req, res, next) {
+  res.status(404).send("Sorry can't find that!")
+});
+
+

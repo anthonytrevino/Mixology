@@ -105,3 +105,14 @@ body{
     margin-top: 3px;
   }
 }
+.button1 {
+  background-color: black;
+  border: 2px solid white;
+  margin:0;
+  padding: 2px;
+  overflow:visible;
+  color:white;
+  display: inline;
+ 
+}
+
