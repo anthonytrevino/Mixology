@@ -27,7 +27,7 @@
     Drink image
 =======
       <h5>Search for a drink</h5>
-      
+
       <form action="/getCocktails" method="POST">
           <input type="text" name="query" placeholder="Enter Cocktail Name: ">
           <input type="submit" value="Search">
@@ -44,16 +44,19 @@
 
     <div id="createDrink">
       <h5>Create a Drink</h5>
-      <input type="text" name="" value="" placeholder="Enter Drink Name" />
-      <input type="text" name="" value="" placeholder="Enter Drink category" />
-      <select name="glassSize">
-        <option value="Tall">Tall Glass</option>
-        <option value="Tall">Small Glass</option>
-      </select>
+      <form class="" action="/createdrink" method="POST">
+        <input type="text" name="strdrink" value="" placeholder="Enter Drink Name" />
+        <input type="text" name="" value="" placeholder="Enter Drink category" />
+        <select name="glassSize">
+          <option value="Tall">Tall Glass</option>
+          <option value="Tall">Small Glass</option>
+        </select>
 
-      <input type="text" name="" value="" placeholder="Enter Instructions" />
-      <input type="text" name="" value="" placeholder="Enter drink thumbnail image" />
-      <input type="text" name="" value="" placeholder="Enter drink ingredients" />
+        <input type="text" name="" value="" placeholder="Enter Instructions" />
+        <input type="text" name="" value="" placeholder="Enter drink thumbnail image" />
+        <input type="text" name="" value="" placeholder="Enter drink ingredients" />
+      </form>
+
 
     </div>
 
