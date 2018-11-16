@@ -106,8 +106,12 @@ body{
   }
 }
 
-.row::after {
-  content:"";
-  clear: both;
-  display: table;
+#search {
+  padding:20px;
+  margin:20px;
+}
+
+#createDrink {
+  padding:20px;
+  margin:20px;
 }

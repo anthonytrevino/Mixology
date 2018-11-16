@@ -202,6 +202,10 @@ db.any('SELECT * FROM drink_comment WHERE iddrink = $1',[2])
 })
 })
 
+app.get('/dashboard',function(req,res){
+  res.render('dashboard')
+})
+
 app.listen(3000,function(req,res){
     console.log("Server has started...")
 })
