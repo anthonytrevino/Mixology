@@ -12,10 +12,29 @@ button:focus {
     margin-top: 1px;
 }
 
+.btn  {
+    background-color: black !important;
+    color: white!important;
+    border-color: white !important;
+    -webkit-transition-duration: 0.1s;
+}
+
+.btn:hover {
+    background-color: white !important;
+    color: black !important;
+    border-color: white !important;
+}
+
+.btn:hover {
+    background-color: bla
+
+}
+
 .navbar {padding-top:1px !important; padding-bottom:1px !important;}
 
 body{
   padding-top: 80px;
+  background: url("background.jpg");
 }
 
 #drink-img img{

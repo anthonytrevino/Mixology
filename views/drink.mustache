@@ -1,6 +1,10 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mixology Master</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="main.css" type="text/css">
 </head>
@@ -13,7 +17,7 @@
   <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+       <ul class="navbar-nav mr-auto">
           <!-- <li class="nav-item active">
               <a class="nav-link" href="#">Photo Master</a>
           </li>
@@ -26,11 +30,15 @@
       </ul>
       <ul class="navbar-nav mr-right">
         <li class="nav-item">
-            <a class="nav-link" href="/register">
+            <!-- <a class="nav-link" href="/register">
             Register
-            </a>
+            </a> -->
+     <form class="form-inline my-2 my-lg-0" action="/getCocktails" method="POST">
+     <input class="form-control mr-sm-2" type="search" placeholder="Enter Cocktail Name" aria-label="Search" name="query">
+     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+   </form>
         </li>
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Login
               </a>
@@ -41,7 +49,7 @@
                       <input class="btn btn-primary" type="submit" name="submit" value="Submit">
                   </form>
               </div>
-          </li>
+          </li> -->
       </ul>
 
   </div></nav>

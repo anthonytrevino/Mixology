@@ -37,10 +37,7 @@ app.post('/getSingleCocktail', function (req, res) {
       drink.drinkIngredients = []
       drink.ingredients = []
       drink.proportions = []
-
-
       Object.keys(drink).map(function (key, value) {
-
         if (key.startsWith("strIngredient")) {
           if (drink[key] != '' && drink[key] != null && drink[key] != ' ') {
             drink.ingredients.push({
@@ -53,12 +50,9 @@ app.post('/getSingleCocktail', function (req, res) {
             drink.proportions.push({
               proportion: drink[key]
             })
-
           }
-
         }
       })
-
       for (i = 0; i < drink.ingredients.length; i++) {
         if (drink.proportions[i] == undefined) {
           drink.proportions[i] = "nothing m8"
@@ -69,8 +63,6 @@ app.post('/getSingleCocktail', function (req, res) {
         })
         console.log(drink.drinkIngredients[i])
       }
-
-
     })
     res.render('drink', {
       drinks: json.drinks
@@ -80,18 +72,12 @@ app.post('/getSingleCocktail', function (req, res) {
 
 app.post('/getCocktails', function (req, res) {
   let serchTerm = req.body.query
-
   fetch(cocktailAPI + "search.php?s=" + serchTerm).then(res => res.json()).then(json => {
-    //console.log(json)
-
     json.drinks.map(function (drink) {
       drink.drinkIngredients = []
       drink.ingredients = []
       drink.proportions = []
-
-
       Object.keys(drink).map(function (key, value) {
-
         if (key.startsWith("strIngredient")) {
           if (drink[key] != '' && drink[key] != null && drink[key] != ' ') {
             drink.ingredients.push({
@@ -104,12 +90,9 @@ app.post('/getCocktails', function (req, res) {
             drink.proportions.push({
               proportion: drink[key]
             })
-
           }
-
         }
       })
-
       for (i = 0; i < drink.ingredients.length; i++) {
         if (drink.proportions[i] == undefined) {
           drink.proportions[i] = "nothing m8"
@@ -118,23 +101,13 @@ app.post('/getCocktails', function (req, res) {
           proportion: drink.proportions[i].proportion,
           ingredient: drink.ingredients[i].ingredient
         })
-
       }
-
-
     })
-
-
-
-    //console.log(drink.ingredients)
     res.render('result', {
       drinks: json.drinks
     })
-
   })
-
 })
-
 
 app.post('/register', function(req,res){
         let username = req.body.username
@@ -149,7 +122,7 @@ app.post('/register', function(req,res){
         })
     })
 
-    app.post('/login', function(req, res){
+app.post('/login', function(req, res){
         let username = req.body.username
         let password = req.body.password
         db.any('SELECT userid, username, password FROM user_account WHERE username =$1',[username])
@@ -160,7 +133,6 @@ app.post('/register', function(req,res){
                }else{
                    console.log('error')
                }
-
             })
             if(user != null){
                 if(user.username){
@@ -171,10 +143,8 @@ app.post('/register', function(req,res){
             }else{
                 res.redirect('index')
             }
-
         })
     })
-
 //post comments to db
 app.post('/enter_comment', function(req,res){
     let iddrink = req.body.iddrink
