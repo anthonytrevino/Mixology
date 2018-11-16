@@ -1,54 +1,141 @@
 button:focus {
-    outline: 0;
+  outline: 0;
 }
 
 .navbar .dropdown-menu .form-control {
-    width: 200px;
+  width: 200px;
 }
 
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-    background-color: #508639 !important;
-    border: none !important;
-    margin-top: 1px;
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+  background-color: #508639 !important;
+  border: 2px !important;
+  margin-top: 1px;
 }
 
-.navbar {padding-top:1px !important; padding-bottom:1px !important;}
+.navbar {
+  padding-top: 1px !important;
+  padding-bottom: 1px !important;
+}
 
-body{
+body {
   padding-top: 80px;
+ 
+  background-image: url("background.jpg");
+  background-size: cover;
+
+}
+#bg{
+position: fixed;
+top: 1em;
+
+right: 30%;
+bottom: 0;
+
+margin: 0 -450px;
+background-size: cover;
+z-index: -1;
 }
 
-#drink-img img{
-    width: 250px;
-    height: 250px;
-    margin-top: 1em;
+#drinkTitle {
+  display: block;
+  text-align: left;
+  
+
 }
 
-#info-container{
-    display: flex;
+.form-control-login {
+  height: 36px;
+
+  margin-top: 5px;
+
 }
 
-#drinkInfo{
-    padding-right: 20px;
+#main-container {
+  width: 80%;
+  color: white;
+  
+  margin: auto;
+}
+
+#login {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#search {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#drink-img img {
+  width: 250px;
+  height: 250px;
+  margin-top: 1em;
+}
+
+#info-container {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  
+  
+}
+#ingredients{
+  position: relative;
+}
+#info-button{
+ 
+}
+
+#info-box {
+  display: flex;
+  border-top: 3px double gray;
+  
+  margin-right: auto;
+  padding: 5px;
+  position: relative;
+  
+}
+
+#drinkInfo {
+  padding-right: 25px;
+  text-align: left;
+  width: 250px;
+  /* height: 55%; */
+
+
+}
+
+#drinkInfo ul {
+  list-style: none;
+  padding: 0;
+  
 }
 
 @media screen and (max-width:375px) {
-  .logo{
-    width:45px;
-    height:45px;
+  .logo {
+    width: 45px;
+    height: 45px;
   }
-  .mixology_master{
-    width:224px;
-    height:45px;
+
+  .mixology_master {
+    width: 224px;
+    height: 45px;
   }
-  .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-      margin-left: 5px;
-      margin-bottom: 6px;
+
+  .btn-primary,
+  .btn-primary:hover,
+  .btn-primary:active,
+  .btn-primary:visited {
+    margin-left: 5px;
+    margin-bottom: 6px;
   }
-  .form-control-login{
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
+
+  .form-control-login {
+
     margin-top: 1px;
     margin-left: 5px;
   }
@@ -56,37 +143,83 @@ body{
 
 
 @media (min-width: 376px) and (max-width: 425px) {
-  .logo{
-    width:50px;
-    height:50px;
+  .logo {
+    width: 50px;
+    height: 50px;
   }
-  .mixology_master{
-    width:249px;
-    height:50px;
+
+  .mixology_master {
+    width: 249px;
+    height: 50px;
   }
-  .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-      margin-left: 5px;
-      margin-top: 5px;
+
+  .btn-primary,
+  .btn-primary:hover,
+  .btn-primary:active,
+  .btn-primary:visited {
+    margin-left: 5px;
+    margin-top: 5px;
   }
-  .form-control-login{
+
+  .form-control-login {
     border-style: solid;
     border-width: 1px;
     border-color: black;
     margin-top: 1px;
     margin-left: 2px
   }
+
+  #drink-img img {
+    width: 250px;
+    height: 250px;
+    margin-top: 1em;
+  }
+
+  #info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #info-box {
+    display: flex;
+  }
+
+  #drinkInfo {
+    padding-right: 25px;
+    text-align: left;
+    width: 250px;
+
+  }
+
+  #drinkInfo ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  #main-container {
+    width: 80%;
+    color: white;
+    text-align: center;
+    margin: auto;
+  }
+
+
 }
 
 @media screen and (min-width: 426px) {
-  .logo{
-    width:65px;
-    height:65px;
+  .logo {
+    width: 65px;
+    height: 65px;
   }
-  .mixology_master{
-    width:299px;
-    height:60px;
+
+  .mixology_master {
+    width: 299px;
+    height: 60px;
   }
-  .dropdown-menu{
+
+  .dropdown-menu {
     margin-top: 22px;
     border-style: solid;
     border-width: 5px;
@@ -94,14 +227,20 @@ body{
     padding-left: 3px;
     padding-right: 3px;
   }
-  .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-      margin-left: 10px;
-      margin-top: 5px;
+
+  .btn-primary,
+  .btn-primary:hover,
+  .btn-primary:active,
+  .btn-primary:visited {
+    margin-left: 10px;
+    border: 2px;
+
   }
-  .form-control-login{
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
+
+  .form-control-login {
+
+
+
     margin-top: 3px;
   }
 }
@@ -116,3 +255,19 @@ body{
  
 }
 
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+#search {
+  padding: 20px;
+  margin: 20px;
+}
+
+#createDrink {
+  padding: 20px;
+  margin: 20px;
+}

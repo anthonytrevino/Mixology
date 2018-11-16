@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="main.css">
+  </head>
+  <body>
+    <div id="search">
+<<<<<<< HEAD
+      <input type="text" name="" value="" placeholder="This is the search text box">
+    </div>
+    <div>
+      <input type="text" name="" value="" placeholder = "Create a Drink here">
+    </div>
+
+<div class="row">
+  <div class="col-sm">User</div>
+  <div class="col-sm">Drink information</div>
+  <div class="col-sm">Drink image</div>
+</div>
+
+
+    User
+    Drink information
+    Drink image
+=======
+      <h5>Search for a drink</h5>
+
+      <form action="/getCocktails" method="POST">
+          <input type="text" name="query" placeholder="Enter Cocktail Name: ">
+          <input type="submit" value="Search">
+      </form>
+      {{#data}}
+      <uL>
+      <li>
+          <p>This exists</p>
+          <p>{{strDrink}}</p>
+      </li>
+      </ul>
+      {{/data}}
+    </div>
+
+    <div id="createDrink">
+      <h5>Create a Drink</h5>
+      <form class="" action="/createdrink" method="POST">
+        <input type="text" name="strdrink" value="" placeholder="Enter Drink Name" />
+        <input type="text" name="" value="" placeholder="Enter Drink category" />
+        <select name="glassSize">
+          <option value="Tall">Tall Glass</option>
+          <option value="Tall">Small Glass</option>
+        </select>
+
+        <input type="text" name="" value="" placeholder="Enter Instructions" />
+        <input type="text" name="" value="" placeholder="Enter drink thumbnail image" />
+        <input type="text" name="" value="" placeholder="Enter drink ingredients" />
+      </form>
+
+
+    </div>
+
+
+    <h4>User-created Drink recipes</h4>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          User
+        </div>
+        <div class="col-sm">
+          Drink Information
+        </div>
+        <div class="col-sm">
+          Drink image
+        </div>
+      </div>
+    </div>
+>>>>>>> anthony
+
+
+
+
+  </body>
+</html>

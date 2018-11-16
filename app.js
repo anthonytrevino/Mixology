@@ -84,6 +84,7 @@ app.post('/getSingleCocktail', function (req, res) {
 app.post('/getCocktails', function (req, res) {
   let serchTerm = req.body.query
 
+
   fetch(cocktailAPI + "search.php?s=" + serchTerm).then(res => res.json()).then(json => {
     //console.log(json)
 
@@ -164,6 +165,7 @@ app.post('/register', function(req,res){
                }else{
                    console.log('error')
                }
+
             })
             if(user != null){
                 if(user.username){
@@ -174,6 +176,7 @@ app.post('/register', function(req,res){
             }else{
                 res.redirect('index')
             }
+
         })
     })
 
@@ -229,6 +232,10 @@ app.get('/logout',function(req,res){
   }
 })
 
+
+app.get('/dashboard',function(req,res){
+  res.render('dashboard')
+})
 
 app.listen(3000,function(req,res){
     console.log("Server has started...")
