@@ -54,6 +54,12 @@ background-size: cover;
 z-index: -1;
 }
 
+#form-input{
+  display: inline-block;
+  flex-direction: column;
+  padding: 10px;
+}
+
 #drinkTitle {
   display: block;
   text-align: left;
@@ -75,6 +81,8 @@ z-index: -1;
   margin: auto;
 }
 
+
+
 #login {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -89,6 +97,14 @@ z-index: -1;
   width: 250px;
   height: 250px;
   margin-top: 1em;
+}
+
+#drink-title-main{
+  text-align: center;
+}
+
+#drink-title-main h1{
+  font-size: 60px;
 }
 
 #info-container {
