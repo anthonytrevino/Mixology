@@ -1,0 +1,168 @@
+button:focus {
+    outline: 0;
+  }
+  
+  .navbar .dropdown-menu .form-control {
+    width: 200px;
+  }
+  
+  .btn-primary,
+  .btn-primary:hover,
+  .btn-primary:active,
+  .btn-primary:visited {
+    background-color: #508639 !important;
+    border: 2px !important;
+    margin-top: 1px;
+  }
+  
+  .btn  {
+      background-color: black !important;
+      color: white!important;
+      border-color: white !important;
+      -webkit-transition-duration: 0.1s;
+  }
+  
+  .btn:hover {
+      background-color: white !important;
+      color: black !important;
+      border-color: white !important;
+  }
+  
+  .btn:hover {
+      background-color: bla
+  
+  }
+  
+  .navbar {padding-top:1px !important; padding-bottom:1px !important;}
+  
+  body {
+    padding-top: 80px;
+  
+    background-image: url("background.jpg");
+    background-size: cover;
+  
+  }
+  #bg{
+  position: fixed;
+  top: 1em;
+  
+  right: 30%;
+  bottom: 0;
+  
+  margin: 0 -450px;
+  background-size: cover;
+  z-index: -1;
+  }
+  
+  #form-input{
+    display: inline-block;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  #info-container {
+    display: flex;
+    
+    padding: 15px;
+  
+  
+  }
+
+  #info-box {
+    display: flex;
+    border-top: 3px double gray;
+  
+    margin-right: auto;
+    padding: 5px;
+    position: relative;
+  
+  }
+  
+  #drinkInfo {
+    padding-right: 25px;
+    text-align: left;
+    width: 250px;
+    /* height: 55%; */
+  }
+
+  #drinkInfo ul {
+    list-style: none;
+    padding: 0;
+  
+  }
+
+
+  #info-box {
+    display: flex;
+  }
+
+  #drinkInfo {
+    padding-right: 25px;
+    text-align: left;
+    width: 250px;
+
+  }
+
+  #main-container {
+    width: 80%;
+    color: white;
+    text-align: center;
+    margin: auto;
+  }
+
+  #drink-img{
+    justify-content: center;
+    text-align: center; 
+  }
+
+  #drink-img img {
+    width: 400px;
+    height: 400px;
+    margin-top: 1em;
+    
+  }
+  
+  #drink-title-main{
+    text-align: center;
+  }
+  
+  #drink-title-main h1{
+    font-size: 60px;
+  }
+
+  @media screen and (min-width: 426px) {
+    .logo {
+      width: 65px;
+      height: 65px;
+    }
+  
+    .mixology_master {
+      width: 299px;
+      height: 60px;
+    }
+  
+    .dropdown-menu {
+      margin-top: 22px;
+      border-style: solid;
+      border-width: 5px;
+      border-color: black;
+      padding-left: 3px;
+      padding-right: 3px;
+    }
+  
+    .btn-primary,
+    .btn-primary:hover,
+    .btn-primary:active,
+    .btn-primary:visited {
+      margin-left: 10px;
+      border: 2px;
+  
+    }
+  
+    .form-control-login {
+  
+  
+  
+      margin-top: 3px;
+    }
+  }
