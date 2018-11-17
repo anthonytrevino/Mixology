@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>User Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="main.css">
@@ -42,6 +44,17 @@
                     </form>
                 </div>
             </li>
+            <li class="nav-item">
+    <form class="form-inline my-2 my-lg-0" action="/getCocktails" method="POST">
+    <input class="form-control mr-sm-2" type="search" placeholder="Enter Cocktail Name" aria-label="Search" name="query">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    </li>
+    <li class="nav-item">
+   <form class="nav-item" action ='/logout' method="GET">
+   <input type="submit"  class="btn btn-outline-success my-2 my-sm-0" value="Logout">
+   </form>
+   </li>
         </ul>
 
     </div></nav>
