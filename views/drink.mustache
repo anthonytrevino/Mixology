@@ -116,20 +116,31 @@
             <div id="drink-img">
                 <img src="{{strDrinkThumb}}">
             </div>
-        </div>
+    
     </div>
+     <h3 align="left">Comments</h3>
     {{#username}}
+    <div >
     <div id="comment">
-       <h3>Comments</h3>
-    <form action ="/enter_comment" method="POST">
+    <form align="left" action ="/enter_comment" method="POST">
     <input type = "text" name="enter_comment" placeholder="type a comment">
     <input type ="hidden" name="iddrink" value="{{idDrink}}" >
     <input type ="hidden" name="drinks" value="{{drinks}}">
     <input type ="submit" value="Submit">
     </form>
     </div>
+    <br>
     {{/username}}
     {{/drinks}}
+    {{#drink_comment}}
+    <ul align="left">
+    <li>{{drink_comment}}</li>
+    <li>by: {{username}}</li> 
+    </ul>
+    {{/drink_comment}}
+   </div>
+</div>
+    
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>

@@ -207,13 +207,12 @@ app.post('/enter_comment', function(req,res){
     let iddrink = req.body.iddrink
     let drinks =req.body.drinks
     console.log(req.session.username)
-    console.log(iddrink)
+    
     let enter_comment = req.body.enter_comment
     db.none('INSERT INTO drink_recipe(iddrink) VALUES($1) ON CONFLICT (iddrink) DO NOTHING',[iddrink])
     db.none('INSERT INTO user_comment(iddrink,drink_comment,time_stamp, username) VALUES($1,$2,$3,$4)',[iddrink,enter_comment,new Date(),req.session.username])
     db.any('SELECT * FROM user_comment WHERE iddrink =$1',[iddrink])
     .then(function(result){
-      console.log(result)
       res.render('drink',{drink_comment:result, 
         drinks:cache_drinks,
         username:req.session.username, 
