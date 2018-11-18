@@ -164,9 +164,6 @@ button:focus {
     }
   
     .form-control-login {
-  
-  
-  
       margin-top: 3px;
     }
   }
@@ -175,4 +172,165 @@ button:focus {
     list-style-position: inside; 
     margin:0;
     padding: 0;
+  }
+
+
+  @media screen and (max-width:375px) {
+    
+    .mobile-remove{display:none;}
+    .logo {
+      width: 45px;
+      height: 45px;
+    }
+  
+
+    body {
+        padding-top: 80px;
+        background-color: black;
+        background-image: none;
+       
+      
+      }
+
+    .mixology_master {
+      width: 224px;
+      height: 45px;
+    }
+  
+    .btn-primary,
+    .btn-primary:hover,
+    .btn-primary:active,
+    .btn-primary:visited {
+      margin-left: 5px;
+      margin-bottom: 6px;
+    }
+  
+    .form-control-login {
+  
+      margin-top: 1px;
+      margin-left: 5px;
+    }
+    #drink-img img {
+      width: 250px;
+      height: 250px;
+      margin-top: 1em;
+    }
+  
+    #info-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    #info-box {
+      display: flex;
+    }
+  
+    #drinkInfo {
+      padding-right: 25px;
+      text-align: left;
+      width: 250px;
+  
+    }
+  
+    #drinkInfo ul {
+      list-style: none;
+      padding: 0;
+    }
+  
+    #main-container {
+      width: 80%;
+      color: white;
+      text-align: center;
+      margin: auto;
+    }
+    
+
+    #drink-title-main{
+        text-align: center;
+        display: flex;
+      }
+  
+  }
+  
+  
+  @media (min-width: 376px) and (max-width: 414px) {
+    
+    .mobile-remove{display:none;}
+    .logo {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .mixology_master {
+      width: 249px;
+      height: 50px;
+    }
+  
+    .btn-primary,
+    .btn-primary:hover,
+    .btn-primary:active,
+    .btn-primary:visited {
+      margin-left: 5px;
+      margin-top: 5px;
+    }
+  
+    .form-control-login {
+      border-style: solid;
+      border-width: 1px;
+      border-color: black;
+      margin-top: 1px;
+      margin-left: 2px
+    }
+  
+    #drink-img img {
+      width: 250px;
+      height: 250px;
+      margin-top: 1em;
+    }
+  
+    #info-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    #info-box {
+      display: flex;
+    }
+  
+    #drinkInfo {
+      padding-right: 25px;
+      text-align: left;
+      width: 250px;
+  
+    }
+  
+    #drinkInfo ul {
+      list-style: none;
+      padding: 0;
+    }
+  
+    #main-container {
+      width: 80%;
+      color: white;
+      text-align: center;
+      margin: auto;
+    }
+
+    body {
+        padding-top: 80px;
+        background-color: black;
+        background-image: none;
+       
+      
+      }
+        
+  #drink-title-main{
+    text-align: center;
+    display: flex;
+  }
+  
   }

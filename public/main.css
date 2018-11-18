@@ -216,7 +216,12 @@ z-index: -1;
 }
 
 @media screen and (max-width:375px) {
-  .index{ background-image: url("mobile_background.jpg");}
+
+
+  #bg{
+    display: none;
+    }
+
   .mobile-remove{display:none;}
   .logo {
     width: 45px;
@@ -277,11 +282,31 @@ z-index: -1;
     margin: auto;
   }
 
+  body {
+    padding-top: 80px;
+    background-color: black;
+    background-image: none;
+  }
+
 }
 
 
 @media (min-width: 376px) and (max-width: 414px) {
-  .index{ background-image: url("mobile_background.jpg");}
+
+  #drinkTitle {
+    display: block;
+    text-align: center;
+  }
+  
+  #info-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #bg{
+    display: none;
+    }
+
   .mobile-remove{display:none;}
   .logo {
     width: 50px;
@@ -344,11 +369,22 @@ z-index: -1;
     text-align: center;
     margin: auto;
   }
-
+  body {
+    padding-top: 80px;
+    background-color: black;
+    background-image: none;
+   
+  
+  }
 
 }
 
 @media screen and (min-width: 415px) {
+  #drinkTitle {
+    display: block;
+    text-align: center;
+  }
+  
   body{
     background-image: url("background.jpg");
     background-size: cover;
@@ -402,6 +438,10 @@ z-index: -1;
 
 }
 
+#info-box {
+  display: flex;
+  flex-direction: column;
+}
 
 .row::after {
   content: "";
