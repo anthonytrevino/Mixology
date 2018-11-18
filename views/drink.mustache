@@ -13,39 +13,34 @@
 
 <body>
 
-    <nav class="navbar fixed-top navbar-dark navbar-expand-lg" style="background-color: black;">
-        <a class="navbar-brand" href="/"><img src="logo_scalable.png" class="logo"><img src="mixology_master.png" class="mixology_master"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <!-- <li class="nav-item active">
-              <a class="nav-link" href="#">Photo Master</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#">Upload Your Own</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-          </li> -->
-            </ul>
-            <ul class="navbar-nav mr-right">
-                <li class="nav-item">
-                    <!-- <a class="nav-link" href="/register">
-            Register
-            </a> -->
-     <form class="form-inline my-2 my-lg-0" action="/getCocktails" method="POST">
+  <nav class="navbar fixed-top navbar-dark navbar-expand-lg" style="background-color: black;">
+  <a class="navbar-brand" href="/"><img src="logo_scalable.png" class="logo"><img src="mixology_master.png" class="mixology_master"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       {{#username}}
+    <ul class="navbar-nav mr-right"> 
+     <li class="nav-item">
+    <p class="nav-link">{{username}}</p>
+    </li>
+     <li class="nav-item">
+    <form class="nav-link" action ='/logout' method="GET">
+    <input type="submit"  class="button button1" value="logout">
+
+    </form>
+    
+    </li>
+    <form class="form-inline my-2 my-lg-0" action="/getCocktails" method="POST">
      <input class="form-control mr-sm-2" type="search" placeholder="Enter Cocktail Name" aria-label="Search" name="query">
      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
    </form>
-        </li>
-        <li class="nav-item">
-       <form class="nav-item" action ='/logout' method="GET">
-       <input type="submit"  class="btn btn-outline-success my-2 my-sm-0" value="Logout">
-       </form>
-       </li>
+    </ul>
+     
+    {{/username}}
+
+     
+        
           <!-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Login
@@ -58,6 +53,36 @@
                   </form>
               </div>
           </li> -->
+      
+{{#register}} 
+<ul class="navbar-nav mr-right">
+<form class="form-inline my-2 my-lg-0" action="/getCocktails" method="POST">
+     <input class="form-control mr-sm-2" type="search" placeholder="Enter Cocktail Name" aria-label="Search" name="query">
+     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+   </form>
+   
+      <li class="nav-item">
+          <a class="nav-link" href="/register">
+          Register
+          </a>
+      </li>
+             <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Login
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+                <form class="form-horizontal" action="/login" method="POST" accept-charset="UTF-8">
+                    <input class="form-control-login" type="text" name="username" placeholder="Username" size="25" >
+                    <input class="form-control-login" type="password" name="password" placeholder="Password" size="25" >
+                    <input class="btn btn-primary" type="submit" name="submit" value="Submit">
+                </form>
+            </div>
+        </li>
+    </ul>
+
+  </div></nav>
+{{/register}}
+</div></nav>
             </ul>
 
         </div>
@@ -90,6 +115,7 @@
             <div id="drink-img">
                 <img src="{{strDrinkThumb}}">
             </div>
+    
             
         </div>
         <div id="instructions">
@@ -97,8 +123,29 @@
             <p>{{strInstructions}}</p>
         </div>
     </div>
-
+     <h3 align="left">Comments</h3>
+    {{#username}}
+    <div >
+    <div id="comment">
+    <form align="left" action ="/enter_comment" method="POST">
+    <input type = "text" name="enter_comment" placeholder="type a comment">
+    <input type ="hidden" name="iddrink" value="{{idDrink}}" >
+    <input type ="hidden" name="drinks" value="{{drinks}}">
+    <input type ="submit" value="Submit">
+    </form>
+    </div>
+    <br>
+    {{/username}}
     {{/drinks}}
+    {{#drink_comment}}
+    <ul align="left">
+    <li>{{drink_comment}}</li>
+    <li>by: {{username}}</li> 
+    </ul>
+    {{/drink_comment}}
+   </div>
+</div>
+    
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>

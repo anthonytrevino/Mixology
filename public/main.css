@@ -3,7 +3,7 @@ button:focus {
 }
 
 .navbar .dropdown-menu .form-control {
-  width: 200px;
+  width: 100%;
 }
 
 h3, h5, h4, p, .col-sm {
@@ -122,9 +122,7 @@ z-index: -1;
 #ingredients{
   position: relative;
 }
-#info-button{
 
-}
 
 #info-box {
   display: flex;

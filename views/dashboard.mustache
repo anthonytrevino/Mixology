@@ -27,27 +27,42 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Contact</a>
             </li> -->
-      </ul>
-      <ul class="navbar-nav mr-right">
-        <li class="nav-item">
+        </ul>
+         <ul class="navbar-nav mr-right">
+     <li class="nav-item">
+    <p class="nav-link">{{username}}</p>
+    </li>
+     <li class="nav-item">
+    <form class="nav-link" action ='/logout' method="GET">
+    <input type="{{type}}"  class="{{button}}" value="{{logout}}">
+
+    </form>
+    </li>
+    </ul>
+    <ul class="navbar-nav mr-right">
+      <li class="nav-item">
           <a class="nav-link" href="/register">
-            Register
+          {{register}}
           </a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            Login
-          </a>
-          <div class="dropdown-menu dropdown-menu-right">
-            <form class="form-horizontal" action="/login" method="POST" accept-charset="UTF-8">
-              <input class="form-control-login" type="text" name="username" placeholder="Username" size="25">
-              <input class="form-control-login" type="password" name="password" placeholder="Password" size="25">
-              <input class="btn btn-primary" type="submit" name="submit" value="Submit">
-            </form>
-          </div>
-        </li>
-      </ul>
+      </li>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <form class="form-horizontal" action="/login" method="POST" accept-charset="UTF-8">
+                        <input class="form-control-login" type="text" name="username" placeholder="Username" size="25" >
+                        <input class="form-control-login" type="password" name="password" placeholder="Password" size="25" >
+                        <input class="btn btn-primary" type="submit" name="submit" value="Submit">
+                    </form>
+                </div>
+            </li>
+            <li class="nav-item">
+    <form class="form-inline my-2 my-lg-0" action="/getCocktails" method="POST">
+    <input class="form-control mr-sm-2" type="search" placeholder="Enter Cocktail Name" aria-label="Search" name="query">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    </li>
+   
+        </ul>
+
+    </div></nav>
 
     </div>
   </nav>
@@ -60,9 +75,16 @@
         <form action="/getCocktails" method="POST">
           <input type="text" name="query" placeholder="Enter Cocktail Name: ">
           <input type="submit" value="Search">
-        </form>
-
-
+      </form>
+      {{#data}}
+      <uL>
+      <li>
+          <p>This exists</p>
+          <p>{{strDrink}}</p>
+      </li>
+      </ul>
+      {{/data}}
+    </div>
 
         <div id="createDrink">
           <h5>Create a Drink</h5>
@@ -84,12 +106,7 @@
           </div>
 
 
-
-        </div>
-
-
-
-        <h4>User-created Drink recipes</h4>
+ <h4>User-created Drink recipes</h4>
         <div class="container">
           <div class="row">
             <div class="col-sm">
@@ -103,6 +120,20 @@
             </div>
           </div>
         </div>
+
+        </div>
+      </div>
+    </div>
+    {{#drink_item}}
+   <h3> {{strdrink}}</h3>
+    <p>{{strcategory}}<p>
+    <p>{{strglass}}</p>
+    <img src='{{strdrinkthumb}}' width='250' height='325'>
+   <p> {{strinstructions}}</p>
+    <p>{{stringredient}}</p>
+    {{/drink_item}}
+
+
 
 
 
