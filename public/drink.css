@@ -40,6 +40,7 @@ button:focus {
   
     background-image: url("background.jpg");
     background-size: cover;
+    position: fixed;
   
   }
   #bg{
@@ -62,12 +63,17 @@ button:focus {
 
   #info-container {
     display: flex;
-    
+    width: 60%;
     padding: 15px;
-  
+    
   
   }
 
+
+  #instructions{
+      text-align: left;
+      width: 500px;
+  }
   #info-box {
     display: flex;
     border-top: 3px double gray;
@@ -79,9 +85,10 @@ button:focus {
   }
   
   #drinkInfo {
-    padding-right: 25px;
+    padding-right: 60px;
     text-align: left;
-    width: 250px;
+    width: 200px;
+    margin-right: 5%;
     /* height: 55%; */
   }
 
@@ -96,29 +103,26 @@ button:focus {
     display: flex;
   }
 
-  #drinkInfo {
-    padding-right: 25px;
-    text-align: left;
-    width: 250px;
-
-  }
+ 
 
   #main-container {
     width: 80%;
     color: white;
     text-align: center;
     margin: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   #drink-img{
     justify-content: center;
-    text-align: center; 
+    
   }
 
   #drink-img img {
     width: 400px;
     height: 400px;
-    margin-top: 1em;
+    
     
   }
   
