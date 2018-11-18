@@ -163,10 +163,10 @@ app.post('/register', function(req,res){
         let encrypted_password = bcrypt.hashSync(password,10)
         db.none('INSERT INTO user_account(username,password) VALUES($1,$2)',[username, encrypted_password])
         .then(function(){
-           res.redirect('index')
+           res.redirect('/')
         })
         .catch(function(error){
-            res.render('register', {error: 'username is already taken'})
+            res.render('register', {error: 'Username is already taken. Please select a different username.'})
 
         })
     })
@@ -180,7 +180,7 @@ app.post('/login', function(req, res){
                if(bcrypt.compareSync(password, user.password)){
                    return user.username == username
                }else{
-                  res.redirect('/')
+                   res.render('index', {error: 'Please enter a valid username and password.'})
                }
             })
             if(user != null){
@@ -197,7 +197,8 @@ app.post('/login', function(req, res){
                    
                 }
             }else{
-                res.redirect('index')
+              //  res.redirect('index')
+                res.render('index', {error: 'Please enter a valid username and password.'})
             }
         })
     })

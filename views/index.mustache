@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +10,7 @@
     <link rel="stylesheet" href="main.css" type="text/css">
 </head>
 
-<body>
+<body class="index">
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg" style="background-color: black;">
         <a class="navbar-brand" href="/"><img src="logo_scalable.png" class="logo"><img src="mixology_master.png" class="mixology_master"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -29,19 +28,18 @@
         <li class="nav-item">
             <a class="nav-link" href="#">Contact</a>
         </li> -->
-    </ul>
+    <!-- </ul>
      <ul class="navbar-nav mr-right">
      <li class="nav-item">
     <p class="nav-link">{{username}}</p>
-    </li>
-     <li class="nav-item">
+    </li> -->
+     <!-- <li class="nav-item">
     <form class="nav-link" action ='/logout' method="GET">
     <input type="{{type}}"  class="{{button}}" value="{{logout}}">
-
     </form>
-    </li>
+    </li> -->
     </ul>
-    <ul class="navbar-nav mr-right">
+    <ul class="navbar-nav mr-right desktop-remove">
       <li class="nav-item">
           <a class="nav-link" href="/register">
           {{register}}
@@ -59,10 +57,16 @@
                 </form>
             </div>
         </li>
+        <li class="nav-item">
+        <form class="form-inline my-2 my-lg-0" action="/getCocktails" method="POST">
+        <input class="form-control mr-sm-2" type="search" placeholder="Enter Cocktail Name" aria-label="Search" name="query">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        </li>
     </ul>
 </div></nav>
 
-    <div id='main-container'>
+    <div id='main-container' class='mobile-remove' >
         <div id='login'>
             <h3>Returning user? Please login:</h3>
             <form class="form-horizontal " action="/login" method="POST" accept-charset="UTF-8">
@@ -70,13 +74,14 @@
                 <input class="form-control-login" type="password" name="password" placeholder="Password" size="25">
                 <input class="btn btn-primary" type="submit" name="submit" value="Submit">
             </form>
+            <p>{{error}}</p>
         </div>
 
         <div id="search">
             <h3>No login? No problem.</h3>
             <h3>Search for cocktails from public source:</h3>
             <form action="/getCocktails" method="POST">
-                <input class="form-control-login" type="text" name="query" placeholder="Enter Cocktail Name: ">
+                <input class="form-control-login" type="text" name="query" placeholder="Enter Cocktail Name:" size="25">
                 <input class="btn btn-primary" type="submit" value="Search">
             </form>
         </div>
