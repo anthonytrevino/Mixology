@@ -24,16 +24,23 @@
                 <a class="nav-link" href="#">Contact</a>
             </li> -->
         </ul>
-        <ul class="navbar-nav mr-right">
-          <li class="nav-item">
-              <a class="nav-link" href="/register">
-              Register
-              </a>
-          </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Login
-                </a>
+         <ul class="navbar-nav mr-right">
+     <li class="nav-item">
+    <p class="nav-link">{{username}}</p>
+    </li>
+     <li class="nav-item">
+    <form class="nav-link" action ='/logout' method="GET">
+    <input type="{{type}}"  class="{{button}}" value="{{logout}}">
+
+    </form>
+    </li>
+    </ul>
+    <ul class="navbar-nav mr-right">
+      <li class="nav-item">
+          <a class="nav-link" href="/register">
+          {{register}}
+          </a>
+      </li>
                 <div class="dropdown-menu dropdown-menu-right">
                     <form class="form-horizontal" action="/login" method="POST" accept-charset="UTF-8">
                         <input class="form-control-login" type="text" name="username" placeholder="Username" size="25" >
@@ -73,7 +80,7 @@
           <option name="tall" value="Tall">Tall Glass</option>
           <option name="small" value="Tall">Small Glass</option>
         </select>
-
+        <input type="hidden" name="username" value="{{username}}">
         <input type="text" name="strinstructions" value="" placeholder="Enter Instructions" />
         <input type="text" name="strdrinkthumb" value="" placeholder="Enter drink thumbnail image" />
         <input type="text" name="stringredient" value="" placeholder="Enter drink ingredients" />
@@ -97,11 +104,18 @@
         </div>
         <div class="col-sm">
           Drink image
+
         </div>
       </div>
     </div>
-
-
+    {{#drink_item}}
+   <h3> {{strdrink}}</h3>
+    <p>{{strcategory}}<p>
+    <p>{{strglass}}</p>
+    <img src='{{strdrinkthumb}}' width='250' height='325'>
+   <p> {{strinstructions}}</p>
+    <p>{{stringredient}}</p>
+    {{/drink_item}}
 
 
 

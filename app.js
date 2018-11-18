@@ -7,6 +7,8 @@ const bcrypt = require('bcryptjs')
 const cocktailAPI = `https://www.thecocktaildb.com/api/json/v1/1/`
 var fetch = require('node-fetch')
 const cookieParser = require('cookie-parser')
+const cache = require('express-cache-response')
+let cache_drinks
 let username
 app.use(session({
     key: 'userid',
@@ -32,6 +34,14 @@ app.engine('mustache',mustacheExpress())
 app.set('views','./views')
 app.set('view engine','mustache')
 
+
+app.use(cache())
+
+
+
+app.get('/drink',function(req,res){ 
+  res.render('drink')
+})
 //Kevin's Work
 app.post('/getSingleCocktail', function (req, res) {
   let drinkID = req.body.drinkID
@@ -67,8 +77,34 @@ app.post('/getSingleCocktail', function (req, res) {
         console.log(drink.drinkIngredients[i])
       }
     })
+    db.any('SELECT * FROM user_comment WHERE iddrink =$1',[drinkID])
+    .then(function(result){
+    cache_drinks = json.drinks
     res.render('drink', {
-      drinks: json.drinks
+      drinks: json.drinks,
+      drink_comment:result,
+      username:req.session.username, 
+      register: function(){ 
+        if(!req.session.username){
+          return true
+        }else{return false}
+      }
+      
+    })
+  })
+    .catch(function(){
+      
+      cache_drinks = json.drinks
+      res.render('drink', {
+        drinks: json.drinks,
+        username:req.session.username, 
+        register: function(){ 
+          if(!req.session.username){
+            return true
+          }else{return false}
+        }
+       
+    })
     })
   })
 })
@@ -107,7 +143,16 @@ app.post('/getCocktails', function (req, res) {
       }
     })
     res.render('result', {
-      drinks: json.drinks
+      drinks: json.drinks,
+      username:req.session.username, 
+      logout:'logout',
+      type:'submit',
+      button:'button button1',
+      register: function(){ 
+        if(!req.session.username){
+          return true
+        }else{return false}
+      }
     })
   })
 })
@@ -135,14 +180,21 @@ app.post('/login', function(req, res){
                if(bcrypt.compareSync(password, user.password)){
                    return user.username == username
                }else{
-                   console.log('error')
+                  res.redirect('/')
                }
             })
             if(user != null){
                 if(user.username){
                     req.session.username=username
-                   console.log(username)
-                    res.render('index',{username:username, logout:'logout', type:'submit', button:'button button1'})
+                    console.log(username)
+                    db.any('SELECT * FROM drink_recipe WHERE username=$1',[username])
+                    .then(function(result){
+                      res.render('dashboard',{drink_item: result,username:username, logout:'logout', type:'submit', button:'button button1'})
+                    })
+                    .catch(function(){ 
+                      res.render('dashboard',{username:username, logout:'logout', type:'submit', button:'button button1'})
+                    })
+                   
                 }
             }else{
                 res.redirect('index')
@@ -152,10 +204,24 @@ app.post('/login', function(req, res){
 //post comments to db
 app.post('/enter_comment', function(req,res){
     let iddrink = req.body.iddrink
-    console.log(username)
+    let drinks =req.body.drinks
+    console.log(req.session.username)
+    console.log(iddrink)
     let enter_comment = req.body.enter_comment
-db.none('INSERT INTO user_comment(iddrink,drink_comment,time_stamp, username) VALUES($1,$2,$3,$4)',[iddrink,enter_comment,new Date(),username])
-res.redirect('drink_item')
+    db.none('INSERT INTO drink_recipe(iddrink) VALUES($1) ON CONFLICT (iddrink) DO NOTHING',[iddrink])
+    db.none('INSERT INTO user_comment(iddrink,drink_comment,time_stamp, username) VALUES($1,$2,$3,$4)',[iddrink,enter_comment,new Date(),req.session.username])
+    db.any('SELECT * FROM user_comment WHERE iddrink =$1',[iddrink])
+    .then(function(result){
+      console.log(result)
+      res.render('drink',{drink_comment:result, 
+        drinks:cache_drinks,
+        username:req.session.username, 
+        logout:'logout',
+        type:'submit',
+        button:'button button1'
+      })
+    })
+
 })
 
 var sessionChecker = (req, res, next) => {
@@ -168,20 +234,13 @@ var sessionChecker = (req, res, next) => {
 app.get('/',sessionChecker, function(req,res){
         res.render('index')
 })
-app.get('/index', function(req,res){
+app.get('/index',sessionChecker, function(req,res){
     res.render('index')
 })
 app.get('/register', function(req,res){
     res.render('register')
 })
-//get drink with comments
-app.get('/drink_item', function(req, res){
 
-db.any('SELECT * FROM drink_comment WHERE iddrink = $1',[2])
-.then(function(result){
-    res.render('drink_item', {drink_item: result})
-})
-})
 
 
 // app.use((req,res,next) =>{
@@ -201,10 +260,9 @@ app.get('/logout',function(req,res){
   }
 })
 
-
-app.get('/dashboard',function(req,res){
-  res.render('dashboard')
-})
+// app.get('/dashboard',function(req,res){
+//   res.render('dashboard')
+// })
 
 app.post('/createdrink',function(req,res){
   let strdrink = req.body.strdrink
@@ -213,11 +271,27 @@ app.post('/createdrink',function(req,res){
   let strinstructions = req.body.strinstructions
   let strdrinkthumb = req.body.strdrinkthumb
   let stringredient = req.body.stringredient
-  console.log(stringredient)
+  let username = req.body.username
+  
+    console.log(stringredient)
 
 
-  db.none('INSERT INTO drink_recipe(strdrink,strcategory,strglass,strinstructions,strdrinkthumb,stringredient) VALUES($1,$2,$3,$4,$5,$6)',[strdrink,strcategory,strglass,strinstructions,strdrinkthumb,[stringredient]])
+  db.none('INSERT INTO drink_recipe(strdrink,strcategory,strglass,strinstructions,strdrinkthumb,stringredient,username) VALUES($1,$2,$3,$4,$5,$6,$7)',[strdrink,strcategory,strglass,strinstructions,strdrinkthumb,[stringredient],username])
+  db.any('SELECT * FROM drink_recipe WHERE username=$1',[username])
+  .then(function(result){
+    res.render('dashboard',{
+      drink_item: result,
+      username:username, 
+      logout:'logout', 
+      type:'submit', 
+      button:'button button1',
+    })
+  })
+ 
 })
+
+
+
 
 app.listen(3000,function(req,res){
     console.log("Server has started...")
@@ -225,4 +299,6 @@ app.listen(3000,function(req,res){
 
 app.use(function (req, res, next) {
   res.status(404).send("Sorry can't find that!")
-});
+})
+
+
