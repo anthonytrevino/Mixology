@@ -8,7 +8,7 @@
     <title>Mixology Master</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="drink.css" type="text/css">
+    <link rel="stylesheet" href="main.css" type="text/css">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
        {{#username}}
-    <ul class="navbar-nav mr-right"> 
+    <ul class="navbar-nav mr-right">
      <li class="nav-item">
     <p class="nav-link">{{username}}</p>
     </li>
@@ -29,18 +29,18 @@
     <input type="submit"  class="button button1" value="logout">
 
     </form>
-    
+
     </li>
     <form class="form-inline my-2 my-lg-0" action="/getCocktails" method="POST">
      <input class="form-control mr-sm-2" type="search" placeholder="Enter Cocktail Name" aria-label="Search" name="query">
      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
    </form>
     </ul>
-     
+
     {{/username}}
 
-     
-        
+
+
           <!-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Login
@@ -53,14 +53,14 @@
                   </form>
               </div>
           </li> -->
-      
-{{#register}} 
+
+{{#register}}
 <ul class="navbar-nav mr-right">
 <form class="form-inline my-2 my-lg-0" action="/getCocktails" method="POST">
      <input class="form-control mr-sm-2" type="search" placeholder="Enter Cocktail Name" aria-label="Search" name="query">
      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
    </form>
-   
+
       <li class="nav-item">
           <a class="nav-link" href="/register">
           Register
@@ -108,15 +108,15 @@
 
                 <h3>Glass Type:</h3>
                 <p>{{strGlass}}</p>
-                
+
 
             </div>
 
             <div id="drink-img">
                 <img src="{{strDrinkThumb}}">
             </div>
-    
-            
+
+
         </div>
         <div id="instructions">
             <h3>Instructions:</h3>
@@ -140,12 +140,12 @@
     {{#drink_comment}}
     <ul align="left">
     <li>{{drink_comment}}</li>
-    <li>by: {{username}}</li> 
+    <li>by: {{username}}</li>
     </ul>
     {{/drink_comment}}
    </div>
 </div>
-    
+
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
