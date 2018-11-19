@@ -21,22 +21,19 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
        {{#username}}
     <ul class="navbar-nav mr-right">
-     <li class="nav-item">
+     <!-- <li class="nav-item">
     <p class="nav-link">{{username}}</p>
-    </li>
+    </li> -->
      <li class="nav-item">
     <form class="nav-link" action ='/logout' method="GET">
-    <input type="submit"  class="button button1" value="logout">
-
+    <input type="submit"  class="btn btn-primary" value="Logout">
     </form>
-
     </li>
     <form class="form-inline my-2 my-lg-0" action="/getCocktails" method="POST">
      <input class="form-control mr-sm-2" type="search" placeholder="Enter Cocktail Name" aria-label="Search" name="query">
      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
    </form>
     </ul>
-
     {{/username}}
 
 
@@ -128,7 +125,7 @@
     <div >
     <div id="comment">
     <form align="left" action ="/enter_comment" method="POST">
-    <input type = "text" name="enter_comment" placeholder="type a comment">
+    <input type = "text" name="enter_comment" placeholder="Type a Comment">
     <input type ="hidden" name="iddrink" value="{{idDrink}}" >
     <input type ="hidden" name="drinks" value="{{drinks}}">
     <input type ="submit" value="Submit">
@@ -138,7 +135,7 @@
     {{/username}}
     {{/drinks}}
     {{#drink_comment}}
-    <ul align="left">
+    <ul align="center">
     <li>{{drink_comment}}</li>
     <li>by: {{username}}</li>
     </ul>

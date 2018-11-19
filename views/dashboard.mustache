@@ -31,9 +31,9 @@
             </li> -->
         </ul>
          <ul class="navbar-nav mr-right">
-     <li class="nav-item">
+     <!-- <li class="nav-item">
     <p class="nav-link">{{username}}</p>
-    </li>
+    </li> -->
      <li class="nav-item">
     <form class="nav-link" action ='/logout' method="GET">
     <input type="{{type}}"  class="{{button}}" value="{{logout}}">
@@ -92,17 +92,16 @@
           <h5>Create a Drink</h5>
           <div id='form-input'>
             <form id="userDrinkInput" action="/createdrink" method="POST">
-              <input type="text" name="strdrink" value="" placeholder="Enter Drink Name" />
-              <input type="text" name="strcategory" value="" placeholder="Enter Drink category" />
-              <select name="glassSize">
-                <option name="tall" value="Tall">Tall Glass</option>
-                <option name="cocktail_glass" value="cocktail_glass">Cocktail Glass</option>
-                <option name="small" value="Tall">Small Glass</option>
-              </select>
-
-              <input type="text" name="strinstructions" value="" placeholder="Enter Instructions" />
-              <input type="text" name="strdrinkthumb" value="" placeholder="Enter drink thumbnail image" />
-              <input type="text" name="stringredient" value="" placeholder="Enter drink ingredients" />
+              <input type="text" name="strdrink" value="" placeholder="Enter Drink Name" /><br>
+              <input type="text" name="strcategory" value="" placeholder="Enter Drink category" /><br>
+              <select name="glassSize"><br>
+                <option name="tall" value="Tall">Tall Glass</option><br>
+                <option name="cocktail_glass" value="cocktail_glass">Cocktail Glass</option><br>
+                <option name="small" value="Tall">Small Glass</option><br>
+              </select><br>
+              <input type="text" name="strinstructions" value="" placeholder="Enter Instructions" /><br>
+              <input type="text" name="strdrinkthumb" value="" placeholder="Enter drink thumbnail image" /><br>
+              <input type="text" name="stringredient" value="" placeholder="Enter drink ingredients" /><br>
               <input type="submit" value="Create">
             </form>
           </div>

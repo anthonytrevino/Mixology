@@ -145,9 +145,9 @@ app.post('/getCocktails', function (req, res) {
     res.render('result', {
       drinks: json.drinks,
       username:req.session.username,
-      logout:'logout',
+      logout:'Logout',
       type:'submit',
-      button:'button button1',
+      button:'btn btn-primary',
       register: function(){
         if(!req.session.username){
           return true
@@ -189,10 +189,10 @@ app.post('/login', function(req, res){
                     console.log(username)
                     db.any('SELECT * FROM drink_recipe WHERE username=$1',[username])
                     .then(function(result){
-                      res.render('dashboard',{drink_item: result,username:username, logout:'logout', type:'submit', button:'button button1'})
+                      res.render('dashboard',{drink_item: result,username:username, logout:'Logout', type:'submit', button:'btn btn-primary'})
                     })
                     .catch(function(){
-                      res.render('dashboard',{username:username, logout:'logout', type:'submit', button:'button button1'})
+                      res.render('dashboard',{username:username, logout:'Logout', type:'submit', button:'btn btn-primary'})
                     })
 
                 }
@@ -216,9 +216,9 @@ app.post('/enter_comment', function(req,res){
       res.render('drink',{drink_comment:result,
         drinks:cache_drinks,
         username:req.session.username,
-        logout:'logout',
+        logout:'Logout',
         type:'submit',
-        button:'button button1'
+        button:'btn btn-primary'
       })
     })
 
@@ -282,9 +282,9 @@ app.post('/createdrink',function(req,res){
     res.render('dashboard',{
       drink_item: result,
       username:username,
-      logout:'logout',
+      logout:'Logout',
       type:'submit',
-      button:'button button1',
+      button:'btn btn-primary',
     })
   })
 

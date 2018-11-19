@@ -6,7 +6,7 @@ button:focus {
   width: 100%;
 }
 
-h3, h5, h4, p, .col-sm {
+h3, h5, h4, p, li , .col-sm {
   color: white;
 }
 
@@ -217,7 +217,7 @@ z-index: -1;
 
 @media screen and (max-width:375px) {
 
-
+.index{ background-image: url("mobile-background.png");}
   #bg{
     display: none;
     }
@@ -292,12 +292,12 @@ z-index: -1;
 
 
 @media (min-width: 376px) and (max-width: 414px) {
-
+.index{ background-image: url("mobile_background.png");}
   #drinkTitle {
     display: block;
     text-align: center;
   }
-  
+
   #info-box {
     display: flex;
     flex-direction: column;
@@ -373,8 +373,8 @@ z-index: -1;
     padding-top: 80px;
     background-color: black;
     background-image: none;
-   
-  
+
+
   }
 
 }
@@ -384,7 +384,7 @@ z-index: -1;
     display: block;
     text-align: center;
   }
-  
+
   body{
     background-image: url("background.jpg");
     background-size: cover;
