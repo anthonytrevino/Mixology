@@ -217,7 +217,7 @@ z-index: -1;
 
 @media screen and (max-width:375px) {
 
-.index{ background-image: url("mobile-background.png");}
+.index{ background-image: url("mobile_background.png");}
   #bg{
     display: none;
     }
