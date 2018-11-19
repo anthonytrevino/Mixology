@@ -8,6 +8,7 @@ button:focus {
 
 h3, h5, h4, p, li , .col-sm {
   color: white;
+  list-style: none;
 }
 
 .logout{
