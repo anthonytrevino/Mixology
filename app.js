@@ -271,7 +271,7 @@ app.post('/createdrink',function(req,res){
   let strinstructions = req.body.strinstructions
   let strdrinkthumb = req.body.strdrinkthumb
   let stringredient = req.body.stringredient
-  let username = req.body.username
+  let username = req.session.username
 
     console.log(stringredient)
 
